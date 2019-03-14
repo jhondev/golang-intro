@@ -23,6 +23,14 @@ func main() {
 	println("***method receiver pointer")
 	person2.birthdayPointer()
 	println(person2.age)
+
+	value := 4
+	test(&value)
+	println(value)
+
+	value2 := 4
+	test2(value2)
+	println(value2)
 }
 
 type person struct{ age int }
@@ -45,4 +53,11 @@ func (p *person) birthdayPointer() {
 	p.age++
 }
 
+func test(value *int) {
+	(*value)++;
+}
+
+func test2(value int) {
+	value++;
+}
 
